@@ -1,7 +1,7 @@
 var sun,murcury,venus,earth,mars;
 
 var sunImage,murcuryImage,VenusImage,earthImage,marsImage;
-
+var angle = 0;
 function preload(){
 sunImage = loadImage('sun.png');
 murcuryImage = loadImage('murcury.png');
@@ -13,13 +13,13 @@ marsImage = loadImage('mars.png');
 
 function setup() {
   
-  createCanvas(1000,800);
+  createCanvas(1200,1000);
 //creating sun
-  sun = createSprite(0.1,270,10,10);
+  sun = createSprite(0,0,10,10);
   sun.addImage(sunImage);
   sun.setCollider("circle",0,0,sun.width/2);
   //sun.debub = true;
-  sun.scale = 0.4;
+  sun.scale = 0.2;
 //creating planets
   murcury = createSprite(340, 260, 50, 50);
   murcury.setCollider("circle",0,0,murcury.width/2);
@@ -43,6 +43,7 @@ function setup() {
   mars.addImage(marsImage);
   mars.setCollider("circle",0,0,mars.width/2);
   mars.scale = 0.15;
+  
   //mars.debug = true;
 }
 
@@ -63,11 +64,9 @@ function draw() {
   if (sun.collide(mars)) {
    mars.destroy();
   }
-
-
-
-
-
+  translate(width/2,height/2);
+ rotate(angle);
+ angle= angle+0.3;
 
 
 
